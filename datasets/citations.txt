@@ -1,0 +1,6 @@
+@misc{bertagnolli2020counsel,
+  title={Counsel chat: Bootstrapping high-quality therapy data},
+  author={Bertagnolli, Nicolas},
+  year={2020},
+  publisher={Towards Data Science. https://towardsdatascience. com/counsel-chat~…}
+}
