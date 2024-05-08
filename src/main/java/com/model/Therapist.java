@@ -14,10 +14,14 @@ public class Therapist {
 	@GeneratedValue
 	private Long id;
 	private String name;
-	private List<String> specialties; // Changed from array to list
-	private List<String> serviceType; // Changed from array to list
+	private List<String> specialties;
+	private List<String> serviceType;
 	private double fee;
 	private double rating;
+	private String imageUrl;
+	private String phoneNumber;
+	private String website;
+	private String address;
 
 	@Relationship(type = "CAN_TREAT", direction = Relationship.Direction.OUTGOING)
 	private List<SymptomCategory> canTreat;
@@ -29,7 +33,8 @@ public class Therapist {
 	}
 
 	public Therapist(Long id, String name, List<String> specialties, List<String> serviceType, double fee,
-			double rating, List<SymptomCategory> canTreat, Location location) {
+			double rating, String imageUrl, String phoneNumber, String website, String address,
+			List<SymptomCategory> canTreat, Location location) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -37,9 +42,15 @@ public class Therapist {
 		this.serviceType = serviceType;
 		this.fee = fee;
 		this.rating = rating;
+		this.imageUrl = imageUrl;
+		this.phoneNumber = phoneNumber;
+		this.website = website;
+		this.address = address;
 		this.canTreat = canTreat;
 		this.location = location;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -104,14 +115,47 @@ public class Therapist {
 	public void setLocation(Location location) {
 		this.location = location;
 	}
+	
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	@Override
 	public String toString() {
 		return "Therapist [id=" + id + ", name=" + name + ", specialties=" + specialties + ", serviceType="
-				+ serviceType + ", fee=" + fee + ", rating=" + rating + ", canTreat=" + canTreat + ", location="
-				+ location + "]";
+				+ serviceType + ", fee=" + fee + ", rating=" + rating + ", imageUrl=" + imageUrl + ", phoneNumber="
+				+ phoneNumber + ", website=" + website + ", address=" + address + ", canTreat=" + canTreat
+				+ ", location=" + location + "]";
 	}
-
 
 
 }

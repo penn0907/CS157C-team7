@@ -1,13 +1,12 @@
 package com.controller;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.model.Therapist;
 import com.service.TherapistService;
@@ -18,17 +17,32 @@ public class TherapistController {
 	@Autowired
     private TherapistService therapistService;
 
-    @GetMapping("/therapists")
-    public ResponseEntity<List<Therapist>> getTherapists(
+    @PostMapping("/therapists")
+    public ModelAndView getTherapists(
             @RequestParam String specificSymptom,
             @RequestParam String serviceType,
             @RequestParam(required = false) String zipCode) {
-        if ("InPerson".equals(serviceType) && zipCode == null) {
-        	// Return an empty list with a bad request
-            return ResponseEntity.badRequest().body(Collections.emptyList());
+    	
+    	ModelAndView modelAndView = new ModelAndView("index");
+    	
+    	List<Therapist> therapists = null;
+        if ("InPerson".equals(serviceType)) {
+        	if(zipCode == null) {
+        		// Return an empty list with a bad request
+        		modelAndView.addObject("msg", "Sorry, no therapist found.");
+        		return modelAndView;
+        	}
+        	therapists = therapistService.recommendInPersonTherapists(specificSymptom, zipCode);
+        	
+        } else {
+        	
+        	therapists = therapistService.recommendOnlineTherapists(specificSymptom);
         }
-        List<Therapist> therapists = therapistService.recommendTherapists(specificSymptom, serviceType, zipCode);
-        return ResponseEntity.ok(therapists);
+        if(therapists.size() <= 0) {
+        	return modelAndView.addObject("msg", "Sorry, no therapist found.");
+        }
+        modelAndView.addObject("therapists", therapists);
+        return modelAndView;
     }
 
 }

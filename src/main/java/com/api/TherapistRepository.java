@@ -10,8 +10,15 @@ import com.model.Therapist;
 public interface TherapistRepository extends Neo4jRepository<Therapist, Long> {
 
 	@Query("MATCH (ss:SpecificSymptom)-[:CATEGORIZED_AS]->(sc:SymptomCategory)<-[:CAN_TREAT]-(t:Therapist) " + 
-		       "WHERE ss.name = $specificSymptom " + 
-		       "RETURN t")
-	List<Therapist> findBySymptomCategory(String specificSymptom);
+		       "WHERE ss.name = $specificSymptom AND ANY(service IN t.serviceType WHERE service = 'Online') " + 
+		       "RETURN t"+
+		       " ORDER BY t.rating DESC")
+	List<Therapist> findOnlineTherapists(String specificSymptom);
+
+	@Query("MATCH (ss:SpecificSymptom)-[:CATEGORIZED_AS]->(sc:SymptomCategory)<-[:CAN_TREAT]-(t:Therapist)-[:LOCATED_IN]->(l:Location) " + 
+		       "WHERE ss.name = $specificSymptom AND 'InPerson' IN t.serviceType AND l.zipCode = $zipCode " + 
+		       "RETURN t"+
+		       " ORDER BY t.rating DESC")
+	List<Therapist> findInPersonTherapists(String specificSymptom, String zipCode);
 
 }
