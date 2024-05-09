@@ -1,0 +1,204 @@
+CREATE (:Problem {phrase: 'Escalating disagreements between family'});
+CREATE (:Problem {phrase: 'Complaints'});
+CREATE (:Problem {phrase: 'Hurting relationships'});
+CREATE (:Problem {phrase: 'Secrets'});
+CREATE (:Problem {phrase: 'Sexual abuse'});
+CREATE (:Problem {phrase: 'Smoking addiction'});
+CREATE (:Problem {phrase: 'Medication'});
+CREATE (:Problem {phrase: 'Unhealthy'});
+CREATE (:Problem {phrase: 'Sick'});
+CREATE (:Problem {phrase: 'Can’t help it'});
+CREATE (:Problem {phrase: 'Craving'});
+CREATE (:Problem {phrase: 'Habit'});
+CREATE (:Problem {phrase: 'Nauseous'});
+CREATE (:Problem {phrase: 'Low self-esteem'});
+CREATE (:Problem {phrase: 'Not being good enough'});
+CREATE (:Problem {phrase: 'Being alone'});
+CREATE (:Problem {phrase: 'Control'});
+CREATE (:Problem {phrase: 'Friends accusation'});
+CREATE (:Problem {phrase: 'Being made fun of'});
+CREATE (:Problem {phrase: 'Can’t let go'});
+CREATE (:Problem {phrase: 'Can’t calm down'});
+CREATE (:Problem {phrase: 'Can’t control breath'});
+CREATE (:Problem {phrase: 'Anxious'});
+CREATE (:Problem {phrase: 'Unhealthy relationships'});
+CREATE (:Problem {phrase: 'Personal issues'});
+CREATE (:Problem {phrase: 'Need definition'});
+CREATE (:Problem {phrase: 'Abuse'});
+CREATE (:Problem {phrase: 'Insecurity'});
+CREATE (:Problem {phrase: 'Lack of control'});
+CREATE (:Problem {phrase: 'Feeling hurt'});
+CREATE (:Problem {phrase: 'Can’t express feelings'});
+CREATE (:Problem {phrase: 'Misunderstood'});
+CREATE (:Problem {phrase: 'Anger'});
+CREATE (:Problem {phrase: 'Explosive feeling'});
+CREATE (:Problem {phrase: 'Lack of Attention'});
+CREATE (:Problem {phrase: 'Lack of energy'});
+CREATE (:Problem {phrase: 'Poor sleep'});
+CREATE (:Problem {phrase: 'Life has lost meaning'});
+CREATE (:Problem {phrase: 'Cheating'});
+CREATE (:Problem {phrase: 'Don’t want to break up family'});
+CREATE (:Problem {phrase: 'Lack of trust'});
+CREATE (:Problem {phrase: 'Deception'});
+CREATE (:Problem {phrase: 'Constant worries'});
+CREATE (:Problem {phrase: 'Big event coming up'});
+CREATE (:Therapy {type: 'Family Conflict'});
+CREATE (:Therapy {type: 'Substance Abuse'});
+CREATE (:Therapy {type: 'Addiction'});
+CREATE (:Therapy {type: 'Social Relationships'});
+CREATE (:Therapy {type: 'Anxiety'});
+CREATE (:Therapy {type: 'Relationship Dissolution'});
+CREATE (:Therapy {type: 'Anger management'});
+CREATE (:Therapy {type: 'Depression'});
+CREATE (:Therapy {type: 'Marriage'});
+CREATE (:Therapy {type: 'Stress'});
+CREATE (:Therapist {name: 'Kristi King-Morgan', service: ['In-person'], imageUrl: 'https://static.vecteezy.com/system/resources/previews/005/520/145/original/cartoon-drawing-of-a-doctor-vector.jpg', phoneNumber: '(123)456-7890', website: 'https://www.examplesite.com/'});
+CREATE (:Therapist {name: 'Jeevna Bajaj', service: ['Online'], imageUrl: 'https://static.vecteezy.com/system/resources/previews/005/520/145/original/cartoon-drawing-of-a-doctor-vector.jpg', phoneNumber: '(123)456-7890', website: 'https://www.examplesite.com/'});
+CREATE (:Therapist {name: 'Rebecca Duellman', service: ['In-person', 'Online'], imageUrl: 'https://static.vecteezy.com/system/resources/previews/005/520/145/original/cartoon-drawing-of-a-doctor-vector.jpg', phoneNumber: '(123)456-7890', website: 'https://www.examplesite.com/'});
+CREATE (:Therapist {name: 'Danielle Alvarez', service: ['In-person', 'Online'], imageUrl: 'https://static.vecteezy.com/system/resources/previews/005/520/145/original/cartoon-drawing-of-a-doctor-vector.jpg', phoneNumber: '(123)456-7890', website: 'https://www.examplesite.com/'});
+CREATE (:Therapist {name: 'Keisha Helm', service: ['In-person'], imageUrl: 'https://static.vecteezy.com/system/resources/previews/005/520/145/original/cartoon-drawing-of-a-doctor-vector.jpg', phoneNumber: '(123)456-7890', website: 'https://www.examplesite.com/'});
+MATCH (a:Therapy {type: 'Family Conflict'}), (b:Problem {phrase: 'Escalating disagreements between family'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Family Conflict'}), (b:Problem {phrase: 'Complaints'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Family Conflict'}), (b:Problem {phrase: 'Hurting relationships'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Family Conflict'}), (b:Problem {phrase: 'Secrets'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Family Conflict'}), (b:Problem {phrase: 'Sexual abuse'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Substance Abuse'}), (b:Problem {phrase: 'Smoking addiction'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Substance Abuse'}), (b:Problem {phrase: 'Medication'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Substance Abuse'}), (b:Problem {phrase: 'Unhealthy'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Substance Abuse'}), (b:Problem {phrase: 'Sick'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Addiction'}), (b:Problem {phrase: 'Can’t help it'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Addiction'}), (b:Problem {phrase: 'Craving'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Addiction'}), (b:Problem {phrase: 'Habit'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Addiction'}), (b:Problem {phrase: 'Nauseous'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Addiction'}), (b:Problem {phrase: 'Lack of control'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Hurting relationships'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Low self-esteem'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Not being good enough'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Being alone'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Control'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Friends accusation'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Being made fun of'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Can’t let go'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Deception'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anxiety'}), (b:Problem {phrase: 'Can’t calm down'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Medication'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Nauseous'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Can’t control breath'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Problem {phrase: 'Anxious'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Relationship Dissolution'}), (b:Problem {phrase: 'Control'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Relationship Dissolution'}), (b:Problem {phrase: 'Unhealthy relationships'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Relationship Dissolution'}), (b:Problem {phrase: 'Personal issues'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Relationship Dissolution'}), (b:Problem {phrase: 'Need definition'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Relationship Dissolution'}), (b:Problem {phrase: 'Abuse'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Relationship Dissolution'}), (b:Problem {phrase: 'Insecurity'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Relationship Dissolution'}), (b:Problem {phrase: 'Not being good enough'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Problem {phrase: 'Lack of control'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Problem {phrase: 'Insecurity'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Problem {phrase: 'Feeling hurt'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Problem {phrase: 'Can’t express feelings'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Problem {phrase: 'Misunderstood'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Problem {phrase: 'Anger'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Problem {phrase: 'Explosive feeling'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Problem {phrase: 'Abuse'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Depression'}), (b:Problem {phrase: 'Lack of Attention'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Depression'}), (b:Problem {phrase: 'Lack of energy'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Depression'}), (b:Problem {phrase: 'Poor sleep'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Depression'}), (b:Problem {phrase: 'Life has lost meaning'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Marriage'}), (b:Problem {phrase: 'Cheating'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Marriage'}), (b:Problem {phrase: 'Don’t want to break up family'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Marriage'}), (b:Problem {phrase: 'Lack of trust'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Marriage'}), (b:Problem {phrase: 'Deception'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Marriage'}), (b:Problem {phrase: 'Sexual abuse'})
+CREATE (b)-[:Associate]->(a);
+//Stress
+MATCH (a:Therapy {type: 'Stress'}), (b:Problem {phrase: 'Can’t calm down'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Stress'}), (b:Problem {phrase: 'Anxious'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Stress'}), (b:Problem {phrase: 'Constant worries'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Stress'}), (b:Problem {phrase: 'Poor Sleep'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Stress'}), (b:Problem {phrase: 'Big event coming up'})
+CREATE (b)-[:Associate]->(a);
+MATCH (a:Therapy {type: 'Family Conflict'}), (b:Therapist {name: 'Kristi King-Morgan'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Relationship Dissolution'}), (b:Therapist {name: 'Kristi King-Morgan'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Anger management'}), (b:Therapist {name: 'Kristi King-Morgan'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Family Conflict'}), (b:Therapist {name: 'Jeevna Bajaj'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Substance Abuse'}), (b:Therapist {name: 'Rebecca Duellman'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Addiction'}), (b:Therapist {name: 'Rebecca Duellman'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Anxiety'}), (b:Therapist {name: 'Rebecca Duellman'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Therapist {name: 'Rebecca Duellman'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Depression'}), (b:Therapist {name: 'Danielle Alvarez'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Therapist {name: 'Danielle Alvarez'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Marriage'}), (b:Therapist {name: 'Danielle Alvarez'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Family Conflict'}), (b:Therapist {name: 'Keisha Helm'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Anxiety'}), (b:Therapist {name: 'Keisha Helm'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Social Relationships'}), (b:Therapist {name: 'Keisha Helm'})
+CREATE (b)-[:Specialize]->(a);
+MATCH (a:Therapy {type: 'Stress'}), (b:Therapist {name: 'Keisha Helm'})
+CREATE (b)-[:Specialize]->(a);
